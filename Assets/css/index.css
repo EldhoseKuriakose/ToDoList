@@ -1,0 +1,231 @@
+body {
+    background: linear-gradient(to right, #159957, #155799);
+}
+
+.container {
+    background: linear-gradient(to right, #232526, #414345);
+    height: 40rem;
+    width: 50rem;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.container .tab-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+}
+
+.container .tab-container button {
+    height: 6rem;
+    width: 8rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: #10215e;
+    color: white;
+}
+
+.container .tab-container #tasks-button {
+    border-top-left-radius: 10px;
+    background-color: #ff8c1a;
+}
+
+.container .tasks-container {
+    margin-left: 10rem;
+}
+
+.container .tasks-container #add-task-container {
+    padding-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.container .tasks-container #add-task-container #new-task {
+    width: 25rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 15px 15px 15px 15px;
+    outline: none;
+    padding-left: 1rem;
+    background-color: #4d4d4d;
+    color: white;
+}
+
+.container .tasks-container #add-task-container #new-task::placeholder {
+    color: lightgrey;
+}
+
+.container .tasks-container #add-task-container button {
+    margin-left: 1rem;
+    width: 5rem;
+    height: 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 10px 10px 10px 10px;
+    font-weight: bold;
+    background-color: #595959;
+    color: white;
+}
+
+.container .tasks-container #add-task-container #add-button:hover {
+    background-color: darkslateblue;
+}
+
+.container .tasks-container #add-task-container #clear-all:hover {
+    background-color: red;
+}
+
+.container .tasks-container .each-task-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: linear-gradient(to right, #c02425, #f0cb35);
+    height: 4rem;
+    width: 37rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: -40px;
+}
+
+.container .tasks-container .each-task-container #completed {
+    margin-top: 13px;
+    zoom: 1.5;
+    margin-right: 15px;
+}
+
+.container .tasks-container .each-task-container .task-name {
+    margin-top: 1.1rem;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.container .tasks-container .each-task-container .into-icon {
+    font-size: 25px;
+    position: absolute;
+    margin-left: 530px;
+    margin-top: 1rem;
+}
+
+.container .tasks-container .each-task-container .into-icon:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.container .tasks-container .each-task-container .delete-icon {
+    font-size: 25px;
+    position: absolute;
+    margin-left: 530px;
+    margin-top: 1rem;
+}
+
+.container .tasks-container .each-task-container .delete-icon:hover {
+    color: darkred;
+    cursor: pointer;
+}
+
+.container .tasks-container .each-task-container .add-icon {
+    font-size: 25px;
+    position: absolute;
+    margin-left: 480px;
+    margin-top: 1rem;
+}
+
+.container .tasks-container .each-task-container .add-icon:hover {
+    cursor: pointer;
+    color: darkgreen;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 70%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#completed-tasks-page-list {
+    display: none;
+}
+
+#incomplete-tasks-page-list {
+    display: none;
+}
+
+/* Making Website Responsive */
+@media only screen and (max-width: 500px){
+    .container {
+        width: 100%;
+        height: 92vh;
+    }
+
+    .container .tab-container {
+        flex-direction: row;
+    }
+
+    .container .tab-container button {
+        height: 3rem;
+        width: 32vw;
+    }
+
+    .container .tab-container #incomplete-tasks-button {
+        border-top-right-radius: 10px;
+    }
+
+    .container .tasks-container {
+        margin-left: 0;
+    }
+
+    .container .tasks-container #add-task-container #new-task {
+        margin-top: 2rem;
+        margin-left: 10px;
+        width: 85vw;
+    }
+
+    .container .tasks-container #add-task-container button {
+        margin-top: 10px;
+    }
+
+    .container .tasks-container #add-task-container #add-button {
+        margin-left: 20vw;
+        margin-right: 8vw;
+    }
+
+    .container .tasks-container .each-task-container {
+        width: 85vw;
+        height: 3rem;
+        margin-left: -25px;
+    }
+
+    .container .tasks-container .each-task-container #completed {
+        margin-top: 15px;
+        zoom: 0;
+        margin-right: 9px;
+    }
+
+    .container .tasks-container .each-task-container .task-name {
+        margin-top: 12px;
+        font-size: 18px;
+    }
+
+    .container .tasks-container .each-task-container .into-icon {
+        margin-left: 75vw;
+        font-size: 20px;
+        margin-top: 12px;
+    }
+
+    .container .tasks-container .each-task-container .delete-icon {
+        font-size: 18px;
+        margin-left: 77vw;
+    }
+
+    .container .tasks-container .each-task-container .add-icon {
+        font-size: 18px;
+        margin-left: 67vw;
+    }
+} 

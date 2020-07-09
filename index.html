@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="Assets/css/index.css">
+    <script src="https://kit.fontawesome.com/e68c8ff3bc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tab-container">
+            <button id="tasks-button" onclick="changeTabTask()">Tasks</button>
+            <button id="completed-tasks-button" onclick="changeTabComplete()">Completed</button>
+            <button id="incomplete-tasks-button" onclick="changeTabIncomplete()">Incomplete</button>
+        </div>
+        <div class="tasks-container">
+            <div id="add-task-container">
+                <input type="text" name="new-task" id="new-task" placeholder="Hey, Any new task">
+                <button id="add-button" onclick="addTask()">Add</button>
+                <button id="clear-all" onclick="clearTasks()">Clear All</button>
+            </div>
+
+            <ul id="tasks-page-list"></ul>
+            <ul id="completed-tasks-page-list"></ul>
+            <ul id="incomplete-tasks-page-list"></ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="Assets/javascript/index.js"></script>
+</body>
+</html>
