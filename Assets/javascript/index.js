@@ -10,6 +10,7 @@ var completedTasksPageList = document.getElementById("completed-tasks-page-list"
 var incompleteTasksPageList = document.getElementById("incomplete-tasks-page-list");
 
 var tabno = 1;
+var idnum = 1;
 
 //For creating a new task 
 function addTask() {
@@ -36,6 +37,8 @@ function addTask() {
         }
         divElement.appendChild(iElement);
         var node = document.createElement("LI");
+        node.id = idnum;
+        idnum++;
         pElement.innerText = newTask.value;
         node.appendChild(divElement);
         tasksPageList.appendChild(node);
@@ -84,23 +87,23 @@ function changeTabIncomplete() {
 
 //Clear all tasks
 function clearTasks() {
-    if(confirm("This will clear all the tasks")){
-        if(tabno === 1) {
+    if(confirm("This will clear all the tasks from all lists")){
             tasksPageList.innerHTML = "";
-        }else if(tabno === 2) {
             completedTasksPageList.innerHTML = "";
-        }else {
             incompleteTasksPageList.innerHTML = "";
-        }
+            idnum = 1;
     }
 }
 
-//Moving task to completed if checkbox is selected
+//Copying task to completed if checkbox is selected and also change the appearance of task in all tasks list
+//Else remove task from completed
 function checkBoxSelected(el) {
+    var parent = el.parentElement;
     if(el.checked) {
         var divElement = document.createElement("div");
         divElement.id = "completed-tasks-page";
         divElement.className += "each-task-container";
+        divElement.style.background = "linear-gradient(to right, #06beb6, #48b1bf)";
         var pElement = document.createElement("p");
         pElement.className += "task-name";
         var iElement = document.createElement("i");
@@ -112,12 +115,17 @@ function checkBoxSelected(el) {
         divElement.appendChild(iElement);
         var node = document.createElement("LI");
         node.appendChild(divElement);
-        var parent = el.parentElement;
         var child = parent.childNodes[1];
         pElement.innerText = child.innerText;
-        parent = parent.parentElement;
-        parent.remove();
+        parent.style.background = "linear-gradient(to right, #06beb6, #48b1bf)";
+        node.id = parent.parentElement.id + "comp";
         completedTasksPageList.appendChild(node);
+    } else {
+        parent.style.background = "linear-gradient(to right, #c02425, #f0cb35)";
+        var chkElement = document.getElementById(parent.parentElement.id + "comp");
+        if(chkElement !== undefined){
+            chkElement.remove();
+        }
     }
 }
 
@@ -147,6 +155,11 @@ function moveToIncomplete(el) {
     var child = parent.childNodes[1];
     pElement.innerText = child.innerText;
     parent = parent.parentElement;
+    var chkElement = document.getElementById(parent.id + "comp");
+    if(chkElement !== null){
+        chkElement.remove();
+    }
+    node.id = parent.id;
     parent.remove();
     incompleteTasksPageList.appendChild(node);
 }
@@ -154,6 +167,10 @@ function moveToIncomplete(el) {
 //Deleting task
 function deleteTask(el) {
     var parent = el.parentElement.parentElement;
+    if(tabno === 2) {
+        var taskId = parent.id.slice(0, parent.id.length - 4);
+        document.getElementById(taskId).remove();
+    }
     parent.remove();
 }
 
@@ -182,6 +199,7 @@ function moveToTasks(el) {
     var node = document.createElement("LI");
     var parent = el.parentElement;
     pElement.innerText = parent.childNodes[0].innerText;
+    node.id = parent.parentElement.id;
     parent.parentElement.remove();
     node.appendChild(divElement);
     tasksPageList.appendChild(node);

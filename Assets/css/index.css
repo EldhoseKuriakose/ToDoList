@@ -4,9 +4,10 @@ body {
 
 .container {
     background: linear-gradient(to right, #232526, #414345);
-    height: 40rem;
+    min-height: 40rem;
     width: 50rem;
     margin: auto;
+    overflow: hidden;
     margin-top: 2rem;
     border-radius: 10px 10px 10px 10px;
 }
@@ -211,7 +212,7 @@ ul {
 
     .container .tasks-container .each-task-container .task-name {
         margin-top: 12px;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .container .tasks-container .each-task-container .into-icon {
