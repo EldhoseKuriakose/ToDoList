@@ -162,7 +162,8 @@ ul {
 @media only screen and (max-width: 500px){
     .container {
         width: 100%;
-        height: 92vh;
+        min-height: 92vh;
+        overflow: hidden;
         margin-top: 10px;
     }
 
